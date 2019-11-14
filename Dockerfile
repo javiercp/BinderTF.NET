@@ -81,6 +81,9 @@ WORKDIR ${HOME}/notebooks/
 
 # Copy libraries
 RUN wget https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-linux-x86_64-1.14.0.tar.gz
-RUN tar -C /usr/local -xzf libtensorflow-cpu-linux-x86_64-1.14.0.tar.gz
+RUN mkdir -p /usr/share/tf
+RUN tar -C /usr/share/tf -xzf libtensorflow-cpu-linux-x86_64-1.14.0.tar.gz
 RUN rm libtensorflow-cpu-linux-x86_64-1.14.0.tar.gz
-RUN ldconfig
+
+ENV LIBRARY_PATH=$LIBRARY_PATH:/usr/share/tf
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/share/tf
