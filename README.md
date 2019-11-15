@@ -28,5 +28,6 @@ Here's the link to test with it with Binder:
 ## Useful links
 - https://github.com/dotnet/try
 - https://github.com/shanselman/NightscoutDashboard
+- https://github.com/SciSharp
 - https://github.com/SciSharp/TensorFlow.NET
 - https://github.com/SciSharp/SciSharpCube
