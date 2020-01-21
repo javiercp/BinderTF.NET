@@ -16,7 +16,7 @@ RUN ldconfig
 And with that, in the notebooks, you can install the [Scisharp Tensorflow bindings](<https://github.com/SciSharp/TensorFlow.NET>):
 
 ```
-#r "nuget: TensorFlow.NET, 0.12.0"
+#r "nuget: TensorFlow.NET, 0.14.0"
 ```
 
 And start playing!!!
