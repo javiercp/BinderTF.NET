@@ -66,18 +66,14 @@ COPY ./NuGet.config ${HOME}/nuget.config
 RUN chown -R ${NB_UID} ${HOME}
 USER ${USER}
 
-# Install lastest build from master branch of Microsoft.DotNet.Interactive from myget
-RUN dotnet tool install -g dotnet-try --add-source "https://dotnet.myget.org/F/dotnet-try/api/v3/index.json"
-
-# Or install latest Microsoft.DotNet.Interactive from nuget
-# RUN dotnet tool install -g dotnet-try 
-
+# Install Microsoft.DotNet.Interactive
+RUN dotnet tool install -g dotnet-interactive --add-source "https://dotnet.myget.org/F/dotnet-try/api/v3/index.json"
 
 ENV PATH="${PATH}:${HOME}/.dotnet/tools"
 RUN echo "$PATH"
 
 # Install kernel specs
-RUN dotnet try jupyter install
+RUN dotnet interactive jupyter install
 
 # Enable telemetry once we install jupyter for the image
 ENV DOTNET_TRY_CLI_TELEMETRY_OPTOUT=false
